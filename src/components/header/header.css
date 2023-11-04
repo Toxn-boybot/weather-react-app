@@ -1,0 +1,75 @@
+/* Start Header  */
+header {
+	background-color: var(--secondaryColor);
+}
+header .container {
+	display: flex;
+	min-height: 70px;
+	justify-content: center;
+	gap: 20px;
+	padding: 15px;
+}
+header .container div {
+	min-height: 40px;
+}
+@media (max-width: 768px) {
+	header .container {
+		flex-direction: column;
+		gap: 10px;
+	}
+}
+header .searchCity {
+	display: flex;
+	min-width: 22%;
+}
+header .searchCity .city {
+	width: 100%;
+	padding: 9px 18px 9px;
+	border-radius: 15px 0px 0px 15px;
+	border: none;
+	outline: none;
+}
+header .searchCity ::placeholder {
+	color: #a0b5d1;
+	font-size: 15px;
+}
+header .searchCity button {
+	border-radius: 0px 15px 15px 0px;
+	border: none;
+	background-color: var(--mainColor);
+	color: var(--bodyColor);
+	font-size: 15px;
+	font-weight: 600;
+	padding: 0 12px;
+	cursor: pointer;
+}
+header .searchCity button:focus {
+	outline: rgba(35, 35, 231, 0.267) solid 3px;
+}
+header .location button {
+	min-height: inherit;
+	width: 100%;
+	padding: 0 16px;
+	background-color: var(--mainColor);
+	border: none;
+	color: var(--bodyColor);
+	font-size: 15px;
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	cursor: pointer;
+}
+header .location button:focus {
+	outline: rgba(35, 35, 231, 0.267) solid 3px;
+}
+header .location button i {
+	font-size: 21px;
+	margin-right: 14px;
+}
+/* End Header  */

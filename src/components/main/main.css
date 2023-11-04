@@ -1,0 +1,8 @@
+main {
+    margin: 20px 0 5px;
+}
+main section {
+    display: grid;
+    grid-template-columns: 30% 27.5% 38%;
+    gap: 30px;
+}

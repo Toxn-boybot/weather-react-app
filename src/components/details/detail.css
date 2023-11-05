@@ -1,0 +1,39 @@
+/* Start details  */
+main .container .details {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	height: 100%;
+	padding: 8px;
+}
+.details > div {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15%;
+}
+
+.details .names p,
+.details .values p {
+	color: var(--mainColor);
+	font-weight: 500;
+	margin: 15px 0 0 0;
+	font-size: 18px;
+}
+/* End Details */
+/* Start Values */
+.details .values {
+	background-color: var(--mainColor);
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-ms-border-radius: 30px;
+	-o-border-radius: 30px;
+	position: relative;
+}
+.details .values p {
+	color: var(--bodyColor);
+}
+.details .names p,
+.details .values p {
+	height: 24px;
+}
+/* End Values */

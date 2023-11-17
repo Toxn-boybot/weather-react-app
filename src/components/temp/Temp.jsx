@@ -5,7 +5,7 @@ import { faRotate } from "@fortawesome/free-solid-svg-icons";
 import { useWeatherData } from "./../context/WeatherDataProvider";
 
 const Temp = () => {
-  const { weatherData, getWeatherDataByCity } = useWeatherData();
+  const { weatherData, getWeatherDataByCity , weatherForNextDays} = useWeatherData();
 
   const cityName = weatherData?.name;
   const temp = Math.trunc(weatherData?.main?.temp);
@@ -26,11 +26,12 @@ const Temp = () => {
       spinner.classList.remove("spinner");
       //refresh data for current city
       getWeatherDataByCity(cityName);
+      weatherForNextDays(cityName);
     }
   };
 
   return (
-    <div className="temp">
+    <div className="temp zoom">
       <div className="icon">
         <button id="refreshButton" onClick={updateWeather}>
           <FontAwesomeIcon

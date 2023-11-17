@@ -6,7 +6,7 @@ const Map = () => {
   const { weatherData } = useWeatherData();
   const cityName = weatherData?.name;
   return (
-    <div className="map">
+    <div className="map zoom">
       <iframe
         title="map"
         height="300"

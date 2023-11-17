@@ -4,17 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
-  const { weatherData, getWeatherDataByCity } = useWeatherData();
+  const { weatherData, getWeatherDataByCity, nextWeather, weatherForNextDays } =
+    useWeatherData();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const inputValue = document.getElementById("cityNameInput").value;
     getWeatherDataByCity(inputValue);
+    weatherForNextDays(inputValue);
     const submit = document.getElementById("submitButton");
     submit.blur();
   };
 
-  console.log(weatherData);
   return (
     <header>
       <div className="container">

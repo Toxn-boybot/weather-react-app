@@ -2,10 +2,16 @@ import "./header.css";
 import { useWeatherData } from "../context/WeatherDataProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 
 function Header() {
-  const { weatherData, getWeatherDataByCity, nextWeather, weatherForNextDays } =
-    useWeatherData();
+  const {
+    weatherData,
+    getWeatherDataByCity,
+    nextWeather,
+    weatherForNextDays,
+    getWeatherForCurrentLocation,
+  } = useWeatherData();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +21,10 @@ function Header() {
     const submit = document.getElementById("submitButton");
     submit.blur();
   };
+
+  useEffect(() => {
+    getWeatherForCurrentLocation();
+  }, []);
 
   return (
     <header>
@@ -38,7 +48,10 @@ function Header() {
           </button>
         </form>
         <div className="location">
-          <button id="yourLocationWeather">
+          <button
+            id="yourLocationWeather"
+            onClick={getWeatherForCurrentLocation}
+          >
             <i className="fa-solid fa-location-dot">
               <FontAwesomeIcon icon={faLocationDot} />
             </i>{" "}

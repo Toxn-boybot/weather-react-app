@@ -1,74 +1,77 @@
 /* Start Next  */
 .next {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 .next .container {
-	display: grid;
-	grid-template-columns: repeat(8, 1fr);
-	gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+}
+.temps .nextIcon {
+  margin-right: 2%;
 }
 @media (max-width: 1279px) {
-	.next .container {
-		grid-template-columns: repeat(5, 1fr);
-	}
+  .next .container {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 @media (max-width: 991px) {
-	.next .container {
-		grid-template-columns: repeat(4, 1fr);
-	}
+  .next .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 @media (max-width: 767px) {
-	.next .container {
-		grid-template-columns: repeat(3, 1fr);
-	}
+  .next .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 479px) {
-	.next .container {
-		grid-template-columns: repeat(2, 1fr);
-	}
+  .next .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .next .container > div {
-	border-radius: 30px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	-ms-border-radius: 30px;
-	-o-border-radius: 30px;
-	overflow: hidden;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  overflow: hidden;
 }
 .next .container .dayDetails {
-	text-align: center;
-	background-color: var(--mainColor);
-	color: var(--bodyColor);
-	padding: 5px;
+  text-align: center;
+  background-color: var(--mainColor);
+  color: var(--bodyColor);
+  padding: 5px;
 }
 .next .container .dayDetails p {
-	font-weight: 600;
-	margin: 0;
+  font-weight: 600;
+  margin: 0;
 }
 .next .container .dayDetails p:nth-child(2) {
-	margin-top: 5px;
+  margin-top: 5px;
 }
 .next .container .temps {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 .next .container .temps > p {
-	margin: 5px 0;
-	text-align: center;
-	color: var(--mainColor);
-	font-weight: 600;
-	font-size: 27px;
+  margin: 5px 0;
+  text-align: center;
+  color: var(--mainColor);
+  font-weight: 600;
+  font-size: 27px;
 }
 @media (max-width: 350px) {
-	.next .container .temps > p {
-		font-size: 20px;
-	}
+  .next .container .temps > p {
+    font-size: 20px;
+  }
 }
 .next .container .temps > p:last-child {
-	font-size: 19px;
+  font-size: 19px;
 }
 .next .container .temps > p i {
-	margin-right: 5px;
-	display: inline-block;
+  margin-right: 5px;
+  display: inline-block;
 }
 /* End Next  */

@@ -8,7 +8,7 @@ import { Icon } from "@iconify/react";
 const Next = () => {
   const { nextWeather: forecasts } = useWeatherData();
 
-  console.log(forecasts);
+  
 
   const nextContent = forecasts?.map((forecast) => {
     const { datetime, tempmax, tempmin, conditions, preciptype } = forecast;
@@ -47,11 +47,11 @@ const Next = () => {
         </div>
         <div className="temps">
           <p className="morning">
-            <Icon icon="gg:sun" />
+            <Icon icon="gg:sun" className="nextIcon"/>
             {Math.trunc(tempmax)} <sup>o</sup>C
           </p>
           <p className="night">
-            <FontAwesomeIcon icon={faMoon} />
+            <FontAwesomeIcon icon={faMoon} className="nextIcon"/>
             {Math.trunc(tempmin)} <sup>o</sup>C
           </p>
           <p className="state">

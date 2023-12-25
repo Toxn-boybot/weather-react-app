@@ -39,7 +39,8 @@ export const WeatherDataProvider = ({ children }) => {
     }
   };
 
-  const getWeatherForCurrentLocation = () => {
+  const getWeatherForCurrentLocation = (e) => {
+    e?.target.blur();
     navigator.geolocation.getCurrentPosition(async (position) => {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
@@ -57,8 +58,6 @@ export const WeatherDataProvider = ({ children }) => {
       }
     });
   };
-  
-  
 
   return (
     <WeatherDataContext.Provider
@@ -67,7 +66,7 @@ export const WeatherDataProvider = ({ children }) => {
         getWeatherDataByCity,
         nextWeather,
         weatherForNextDays,
-        getWeatherForCurrentLocation
+        getWeatherForCurrentLocation,
       }}
     >
       {children}

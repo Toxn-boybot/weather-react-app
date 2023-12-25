@@ -6,20 +6,35 @@ import { useEffect } from "react";
 
 function Header() {
   const {
-    weatherData,
     getWeatherDataByCity,
-    nextWeather,
     weatherForNextDays,
     getWeatherForCurrentLocation,
   } = useWeatherData();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    spinAnim();
     const inputValue = document.getElementById("cityNameInput").value;
     getWeatherDataByCity(inputValue);
     weatherForNextDays(inputValue);
     const submit = document.getElementById("submitButton");
     submit.blur();
+  };
+
+  const spinAnim = () => {
+    const spinner = document.getElementById("spinner");
+    spinner?.classList.add("spinner");
+
+    //remove the spin class again
+    setTimeout(RemoveSpin, 1000);
+    function RemoveSpin() {
+      spinner?.classList.remove("spinner");
+    }
+  };
+
+  const handleYourLocationWeatherClick = () => {
+    spinAnim();
+    getWeatherForCurrentLocation();
   };
 
   useEffect(() => {
@@ -50,11 +65,11 @@ function Header() {
         <div className="location">
           <button
             id="yourLocationWeather"
-            onClick={getWeatherForCurrentLocation}
+            onClick={handleYourLocationWeatherClick}
           >
             <i className="fa-solid fa-location-dot">
               <FontAwesomeIcon icon={faLocationDot} />
-            </i>{" "}
+            </i>
             Your location Weather
           </button>
         </div>

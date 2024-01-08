@@ -3,6 +3,7 @@ import { useWeatherData } from "../context/WeatherDataProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 function Header() {
   const {
@@ -13,6 +14,7 @@ function Header() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     spinAnim();
     const inputValue = document.getElementById("cityNameInput").value;
     getWeatherDataByCity(inputValue);
@@ -35,6 +37,7 @@ function Header() {
   const handleYourLocationWeatherClick = () => {
     spinAnim();
     getWeatherForCurrentLocation();
+    toast.success("Weather Updated");
   };
 
   useEffect(() => {

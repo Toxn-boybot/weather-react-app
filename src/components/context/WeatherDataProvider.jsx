@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import axios from "axios";
 
+import { toast } from "react-toastify";
 const WeatherDataContext = createContext();
 
 export const useWeatherData = () => {
@@ -19,17 +20,20 @@ export const WeatherDataProvider = ({ children }) => {
       const response = await axios.get(
         `${BASE_URL}q=${city}&appid=${API_KEY}&units=metric`
       );
+      toast.success("Weather Updated");
       setWeatherData(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error("Error fetching weather data:", error);
+      toast.error("Location Doesn't Exist");
       setWeatherData(null);
     }
   };
 
-  const weatherForNextDays = async (city) => {
+  const weatherForNextDays = async (lat , lon) => {
     try {
       const response = await axios.get(
-        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/next7days?unitGroup=metric&key=23VPXAF7FCGPMNCAXB9QQK7SY`
+        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/next7days?unitGroup=metric&key=23VPXAF7FCGPMNCAXB9QQK7SY`
       );
       setNextWeather(response.data.days);
       console.log(response);
@@ -44,6 +48,7 @@ export const WeatherDataProvider = ({ children }) => {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
+      console.log(lat, lon);
       try {
         const response = await axios.get(
           `${BASE_URL}lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
@@ -51,9 +56,10 @@ export const WeatherDataProvider = ({ children }) => {
         console.log(response);
         setWeatherData(response.data);
         const cityName = response.data.name;
-        weatherForNextDays(cityName);
+        weatherForNextDays(lat,lon);
       } catch (error) {
         console.error("Error fetching weather data:", error);
+        toast.error("Location Doesn't Exist");
         setWeatherData(null);
       }
     });

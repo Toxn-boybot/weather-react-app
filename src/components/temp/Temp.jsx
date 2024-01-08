@@ -3,23 +3,23 @@ import "./temp.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotate } from "@fortawesome/free-solid-svg-icons";
 import { useWeatherData } from "./../context/WeatherDataProvider";
+import { toast } from "react-toastify";
 
 const Temp = () => {
-  const { weatherData, getWeatherDataByCity , weatherForNextDays} = useWeatherData();
+  const { weatherData, getWeatherDataByCity, weatherForNextDays } =
+    useWeatherData();
 
   const cityName = weatherData?.name;
   const temp = Math.trunc(weatherData?.main?.temp);
   const state = weatherData?.weather[0].main;
-  
 
   const updateWeather = () => {
     const spinner = document.getElementById("spinner");
     spinner.classList.add("spinner");
 
     //Show notification when clicking the refresh button using toastr js
-    // toastr.success('Weather updated');
+    toast.success('Weather updated');
 
-    
     //remove the spin class again
     const spinTime = setTimeout(RemoveSpin, 1000);
     function RemoveSpin() {

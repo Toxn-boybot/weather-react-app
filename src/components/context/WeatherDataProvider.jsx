@@ -22,7 +22,10 @@ export const WeatherDataProvider = ({ children }) => {
       );
       toast.success("Weather Updated");
       setWeatherData(response.data);
-      console.log(response.data)
+      const lat = response.data.coord.lat;
+      const lon = response.data.coord.lon;
+      weatherForNextDays(lat,lon);
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching weather data:", error);
       toast.error("Location Doesn't Exist");
@@ -30,7 +33,7 @@ export const WeatherDataProvider = ({ children }) => {
     }
   };
 
-  const weatherForNextDays = async (lat , lon) => {
+  const weatherForNextDays = async (lat, lon) => {
     try {
       const response = await axios.get(
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/next7days?unitGroup=metric&key=23VPXAF7FCGPMNCAXB9QQK7SY`
@@ -55,8 +58,8 @@ export const WeatherDataProvider = ({ children }) => {
         );
         console.log(response);
         setWeatherData(response.data);
-        const cityName = response.data.name;
-        weatherForNextDays(lat,lon);
+
+        weatherForNextDays(lat, lon);
       } catch (error) {
         console.error("Error fetching weather data:", error);
         toast.error("Location Doesn't Exist");

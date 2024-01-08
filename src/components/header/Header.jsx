@@ -14,11 +14,9 @@ function Header() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     spinAnim();
     const inputValue = document.getElementById("cityNameInput").value;
     getWeatherDataByCity(inputValue);
-    weatherForNextDays(inputValue);
     const submit = document.getElementById("submitButton");
     submit.blur();
   };

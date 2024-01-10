@@ -24,12 +24,12 @@ export const WeatherDataProvider = ({ children }) => {
       setWeatherData(response.data);
       const lat = response.data.coord.lat;
       const lon = response.data.coord.lon;
-      weatherForNextDays(lat,lon);
+      weatherForNextDays(lat, lon);
       console.log(response.data);
     } catch (error) {
       console.error("Error fetching weather data:", error);
       toast.error("Location Doesn't Exist");
-      setWeatherData(null);
+      
     }
   };
 
@@ -58,12 +58,12 @@ export const WeatherDataProvider = ({ children }) => {
         );
         console.log(response);
         setWeatherData(response.data);
-
         weatherForNextDays(lat, lon);
+        
       } catch (error) {
         console.error("Error fetching weather data:", error);
         toast.error("Location Doesn't Exist");
-        setWeatherData(null);
+        
       }
     });
   };

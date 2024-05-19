@@ -2,6 +2,7 @@
 
 ![App Screenshot](./src/pictures/Screenshot_5.png)
 
+
 ## Description
 
 This is a simple weather app built using React.js. The app allows users to get current weather information for any city by fetching data from the OpenWeather API. It showcases a clean and user-friendly interface with dynamic weather updates.

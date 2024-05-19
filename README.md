@@ -20,3 +20,7 @@ This is a simple weather app built using React.js. The app allows users to get c
 - **JavaScript**: For adding interactive functionalities.
 - **React.js**: For building the user interface.
 - **OpenWeather API**: For fetching weather data.
+
+## Live Demo
+
+Check out the live version of the app [Click Here](https://toxn-boybot.github.io/weather-react-app/).
